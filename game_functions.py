@@ -110,6 +110,7 @@ def update_screen(ai_settings, screen, stats, sb, ship, aliens1, aliens2, aliens
         explosion_group.draw(screen)
         boss_explo.update(screen)
         blockers.draw(screen)
+        play_music(currentTime, ai_settings)
 
         if not ai_settings.ship_crash:
             ship.blitme()
@@ -432,6 +433,18 @@ def save_high_score(stats, sb):
     file = open("highscore.txt", "a")
     file.write(str(stats.high_score) + ';')
     file.close()
+
+def play_music(currentTime, ai_settings):
+    if currentTime -  ai_settings.time_change > 200:
+        ai_settings.time_change = currentTime
+        bg_music = ai_settings.music[ai_settings.music_index]
+
+        if ai_settings.music_index < 3:
+            ai_settings.music_index += 1
+        else:
+            ai_settings.music_index = 0
+        bg_music.play()
+
 
 
 
