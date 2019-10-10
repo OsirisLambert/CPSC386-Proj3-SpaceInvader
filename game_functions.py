@@ -213,7 +213,7 @@ def check_bullet_blockers_collisions(blockers, bullets_player, aliens1, aliens2,
     pygame.sprite.groupcollide(aliens3, blockers, False, True)
 
 def fire_bullet(ai_settings, screen, ship, bullets_player):
-    if len(bullets_player) < 1000:  #ai_settings.bullets_allowed:
+    if len(bullets_player) < ai_settings.bullets_allowed:
         new_bullet = Bullet(ai_settings, screen, ship, 'player')
         bullets_player.add(new_bullet)
         fire_sound = pygame.mixer.Sound('sounds/shoot.wav')
