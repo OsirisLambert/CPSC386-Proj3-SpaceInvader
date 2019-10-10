@@ -8,6 +8,13 @@ class Settings():
         self.backgroundImage = pygame.image.load('images/background.jpg')
         self.backgroundImage = pygame.transform.scale(self.backgroundImage, (self.screen_width, self.screen_height))
 
+        self.music_index = 0
+        self.music = [pygame.mixer.Sound('sounds/' + '{}.wav'.format(i)) for i
+                           in range(4)]
+        for sound in self.music:
+            sound.set_volume(0.5)
+        self.time_change = 0
+        
         self.ship_speed_factor = 2
         self.bullet_speed_factor = 3
         self.alien_speed_factor = 1
