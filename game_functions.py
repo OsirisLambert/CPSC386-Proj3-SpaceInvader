@@ -188,7 +188,6 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens1,
         ai_settings.alien1_points += 5
         ai_settings.alien2_points += 5
         ai_settings.alien3_points += 5
-        ai_settings.
         for i in range(4):
             ai_settings.boss_points_set[i] += 20
         sb.prep_level()
