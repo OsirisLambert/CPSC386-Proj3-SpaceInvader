@@ -84,6 +84,5 @@ class Ship_explosion(Sprite):
 
     def update(self, screen, ship):
         self.image = self.image_timer.imagerect()
-        print(self.images)
         screen.blit(self.image, self.rect)
 
