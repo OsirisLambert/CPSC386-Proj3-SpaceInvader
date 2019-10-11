@@ -110,12 +110,12 @@ def update_screen(ai_settings, screen, stats, sb, ship, aliens1, aliens2, aliens
         explosion_group.draw(screen)
         boss_explo.update(screen)
         blockers.draw(screen)
-        play_music(currentTime, ai_settings)
 
+        play_music(currentTime, ai_settings)
         if not ai_settings.ship_crash:
             ship.blitme()
         else:
-            if currentTime - ai_settings.ship_crash_time >= 500:
+            if currentTime - ai_settings.ship_crash_time >= 300:
                 ai_settings.ship_crash = False
                 ship.blitme()
             ship_explo.draw(screen)
@@ -188,6 +188,7 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens1,
         ai_settings.alien1_points += 5
         ai_settings.alien2_points += 5
         ai_settings.alien3_points += 5
+        ai_settings.
         for i in range(4):
             ai_settings.boss_points_set[i] += 20
         sb.prep_level()
@@ -214,7 +215,7 @@ def check_bullet_blockers_collisions(blockers, bullets_player, aliens1, aliens2,
     pygame.sprite.groupcollide(aliens3, blockers, False, True)
 
 def fire_bullet(ai_settings, screen, ship, bullets_player):
-    if len(bullets_player) < ai_settings.bullets_allowed:
+    if len(bullets_player) < 1000:  #ai_settings.bullets_allowed:
         new_bullet = Bullet(ai_settings, screen, ship, 'player')
         bullets_player.add(new_bullet)
         fire_sound = pygame.mixer.Sound('sounds/shoot.wav')
@@ -340,7 +341,8 @@ def ship_hit(ai_settings, screen, stats, sb, ship, aliens1, aliens2, aliens3, bu
     ship_destory_sound = pygame.mixer.Sound( 'sounds/shipexplosion.wav')
     ship_destory_sound.set_volume(0.2)
     ship_destory_sound.play()
-    ship_explosion = Ship_explosion(screen, ship, 'images/explosionship.png','images/explosionship2.png', 'images/explosionship3.png')
+    ship_explosion = Ship_explosion(screen, ship, 'images/explosionship.png','images/explosionship2.png', 'images/explosionship3.png', 'images/explosionship4.png',
+                                    'images/explosionship5.png', 'images/explosionship6.png', 'images/explosionship7.png', 'images/explosionship8.png')
     ship_explo.add(ship_explosion)
     if stats.ships_left > 1:
         stats.ships_left -= 1
@@ -444,7 +446,6 @@ def play_music(currentTime, ai_settings):
         else:
             ai_settings.music_index = 0
         bg_music.play()
-
 
 
 

@@ -8,6 +8,7 @@ class GameStats():
         self.game_over = False
         self.high_score_list = [0 for i in range(10)]
         self.pick_high_score()
+        self.score = 0
 
     def pick_high_score(self):
 

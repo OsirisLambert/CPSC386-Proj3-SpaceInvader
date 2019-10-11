@@ -14,7 +14,7 @@ class Settings():
         for sound in self.music:
             sound.set_volume(0.5)
         self.time_change = 0
-        
+
         self.ship_speed_factor = 2
         self.bullet_speed_factor = 3
         self.alien_speed_factor = 1
@@ -35,6 +35,12 @@ class Settings():
 
         self.speedup_scale = 1.1
 
+        self.alien1_points = 10
+        self.alien2_points = 20
+        self.alien3_points = 30
+        self.boss_points_set = [50, 100, 150, 300]
+        self.boss_points = choice(self.boss_points_set)
+
         self.initialize_dynamic_settings()
 
 
@@ -42,16 +48,10 @@ class Settings():
         self.ship_speed_facor = 2
         self.bullet_speed_factor = 3
         self.alien_speed_factor = 1
-
         self.fleet_direction = 1
         self.direction_change_time = 0
         self.direction_change = False
 
-        self.alien1_points = 10
-        self.alien2_points = 20
-        self.alien3_points = 30
-        self.boss_points_set = [50, 100, 150, 300]
-        self.boss_points = choice(self.boss_points_set)
 
     def increase_speed(self):
         self.ship_speed_facor *= self.speedup_scale
